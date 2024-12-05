@@ -1,12 +1,13 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        xor1 = 0
-        xor2 = 0
+        xor = 0
         n = len(nums)
-        for i in range(n-1):
-            xor1 = xor1 ^ nums[i]
-            xor2 = xor2 ^ (i+1)
         
-        xor2 = xor2 ^ n
+        for i in range(n):
+            xor ^= i  # XOR with index
+            xor ^= nums[i]  # XOR with element in nums
 
-        return (xor1 ^ xor2) - 1 #idk why -1 but it wont work otherwise
+        # XOR with the last number (n) to include it
+        xor ^= n
+        
+        return xor
