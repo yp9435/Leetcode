@@ -27,7 +27,6 @@ class Solution:
                         j += 1
                     while j < k and nums[k] == nums[k + 1]:
                         k -= 1
-
         return ans
 
         
