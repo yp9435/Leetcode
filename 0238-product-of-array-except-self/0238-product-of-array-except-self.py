@@ -3,13 +3,11 @@ class Solution:
         prefix = 1
         postfix = 1
         output = []
+
         for i in nums:
             output.append(prefix)
-            prefix *= i 
-    
-        for i in range(len(nums)-1, -1, -1):
-            output[i] = postfix * output[i]
+            prefix *= i
+        for i in range(len(nums) -1, -1, -1):
+            output[i] *= postfix
             postfix *= nums[i]
-        
         return output
-
